@@ -3,8 +3,8 @@
 
 var Player = require("./Player");
 
-var Dinosaur = function (name) {
-  this.name = name;
+var Dinosaur = function () {
+  this.class = "Dinosaur";
   this.strength = null;
   this.mutation = null;
   this.attackType = "bite";
@@ -33,16 +33,29 @@ module.exports = Human;
 },{"./Player":4}],3:[function(require,module,exports){
 "use strict";
 
-var Human = require("./Human");
-var Dinosaur = require("./Dinosaur");
+var Trex = require("./species/dinosaurs/trex");
+var Terror = require("./species/dinosaurs/terror");
+var Plesi = require("./species/dinosaurs/plesi")
 
-var bender = new Dinosaur("Bender");
-var domi = new Human("Dominic");
+var Cromag = require("./species/humans/cromag");
+var Future = require("./species/humans/future");
+var Homo = require("./species/humans/homo")
+
+var bender = new Trex("Bender");
+var domi = new Terror("Dominic");
+var ceo = new Plesi("Tim")
+
+var steve = new Cromag("Steve");
+var joe = new Homo("Joe");
+var john = new Future("John");
 
 console.dir(bender);
 console.dir(domi);
-
-},{"./Dinosaur":1,"./Human":2}],4:[function(require,module,exports){
+console.dir(ceo);
+console.dir(steve);
+console.dir(joe);
+console.dir(john);
+},{"./species/dinosaurs/plesi":5,"./species/dinosaurs/terror":6,"./species/dinosaurs/trex":7,"./species/humans/cromag":8,"./species/humans/future":9,"./species/humans/homo":10}],4:[function(require,module,exports){
 "use strict";
 
 var Player = function () {
@@ -57,4 +70,89 @@ var Player = function () {
 };
 
 module.exports = Player;
-},{}]},{},[3]);
+},{}],5:[function(require,module,exports){
+"use strict";
+
+var Dinosaur = require("../../Dinosaur");
+
+var Plesi = function (name) {
+  this.name = name;
+  this.habitat = "water";
+  this.species = "Plesiosaurus";
+};
+
+Plesi.prototype = new Dinosaur();
+
+module.exports = Plesi;
+},{"../../Dinosaur":1}],6:[function(require,module,exports){
+"use strict";
+
+var Dinosaur = require("../../Dinosaur");
+
+var Terror = function (name) {
+  this.name = name;
+  this.habitat = "air";
+  this.species = "Terrordactyl";
+};
+
+Terror.prototype = new Dinosaur();
+
+module.exports = Terror;
+},{"../../Dinosaur":1}],7:[function(require,module,exports){
+"use strict";
+
+var Dinosaur = require("../../Dinosaur");
+
+var Trex = function (name) {
+  this.name = name;
+  this.habitat = "land";
+  this.species = "Tyranosaurus Rex";
+};
+
+Trex.prototype = new Dinosaur();
+
+module.exports = Trex;
+},{"../../Dinosaur":1}],8:[function(require,module,exports){
+"use strict";
+
+var Human = require("../../Human");
+
+var Cromag = function (name) {
+  this.name = name;
+  this.habitat = "land";
+  this.species = "Cromagnon";
+};
+
+Cromag.prototype = new Human();
+
+module.exports = Cromag;
+},{"../../Human":2}],9:[function(require,module,exports){
+"use strict";
+
+var Human = require("../../Human");
+
+var Future = function (name) {
+  this.name = name;
+  this.habitat = "air";
+  this.species = "Future Sapien";
+};
+
+Future.prototype = new Human();
+
+
+module.exports = Future;
+},{"../../Human":2}],10:[function(require,module,exports){
+"use strict";
+
+var Human = require("../../Human");
+
+var Homo = function (name) {
+  this.name = name;
+  this.habitat = "water";
+  this.species = "Homo Sapien";
+};
+
+Homo.prototype = new Human();
+
+module.exports = Homo;
+},{"../../Human":2}]},{},[3]);
