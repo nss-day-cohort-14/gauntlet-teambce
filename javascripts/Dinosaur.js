@@ -2,8 +2,8 @@
 
 var Player = require("./Player");
 
-var Dinosaur = function (name) {
-  this.name = name;
+var Dinosaur = function () {
+  this.class = "Dinosaur";
   this.strength = null;
   this.mutation = null;
   this.attackType = "bite";
