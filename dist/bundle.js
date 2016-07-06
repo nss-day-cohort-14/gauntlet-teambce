@@ -13,7 +13,7 @@ var Dinosaur = function () {
 Dinosaur.prototype = new Player();
 
 module.exports = Dinosaur;
-},{"./Player":4}],2:[function(require,module,exports){
+},{"./Player":3}],2:[function(require,module,exports){
 "use strict";
 
 var Player = require("./Player");
@@ -30,32 +30,7 @@ Human.prototype = new Player();
 module.exports = Human;
 
 
-},{"./Player":4}],3:[function(require,module,exports){
-"use strict";
-
-var Trex = require("./species/dinosaurs/trex");
-var Terror = require("./species/dinosaurs/terror");
-var Plesi = require("./species/dinosaurs/plesi")
-
-var Cromag = require("./species/humans/cromag");
-var Future = require("./species/humans/future");
-var Homo = require("./species/humans/homo")
-
-var bender = new Trex("Bender");
-var domi = new Terror("Dominic");
-var ceo = new Plesi("Tim")
-
-var steve = new Cromag("Steve");
-var joe = new Homo("Joe");
-var john = new Future("John");
-
-console.dir(bender);
-console.dir(domi);
-console.dir(ceo);
-console.dir(steve);
-console.dir(joe);
-console.dir(john);
-},{"./species/dinosaurs/plesi":5,"./species/dinosaurs/terror":6,"./species/dinosaurs/trex":7,"./species/humans/cromag":8,"./species/humans/future":9,"./species/humans/homo":10}],4:[function(require,module,exports){
+},{"./Player":3}],3:[function(require,module,exports){
 "use strict";
 
 var Player = function () {
@@ -70,7 +45,59 @@ var Player = function () {
 };
 
 module.exports = Player;
-},{}],5:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
+"use strict";
+
+var Trex = require("./species/dinosaurs/trex");
+var Terror = require("./species/dinosaurs/terror");
+var Plesi = require("./species/dinosaurs/plesi");
+
+var Cromag = require("./species/humans/cromag");
+var Future = require("./species/humans/future");
+var Homo = require("./species/humans/homo");
+
+
+//Grabs the user selected class loads relevant species
+let loadSpecies = function() {
+  let selectedClass = $('#class-select').val();
+  console.log(selectedClass);
+};
+
+
+//Event listeners for class change drop down
+$('#class-select').change( loadSpecies );
+
+
+
+
+
+
+
+//Function which grabs character name and passes it to next function
+
+
+//
+
+
+
+
+
+// var bender = new Trex("Bender");
+// var domi = new Terror("Dominic");
+// var ceo = new Plesi("Tim");
+//
+// var steve = new Cromag("Steve");
+// var joe = new Homo("Joe");
+// var john = new Future("John");
+//
+// console.dir(bender);
+// console.dir(domi);
+// console.dir(ceo);
+// console.dir(steve);
+// console.dir(joe);
+// console.dir(john);
+
+},{"./species/dinosaurs/plesi":5,"./species/dinosaurs/terror":6,"./species/dinosaurs/trex":7,"./species/humans/cromag":8,"./species/humans/future":9,"./species/humans/homo":10}],5:[function(require,module,exports){
 "use strict";
 
 var Dinosaur = require("../../Dinosaur");
@@ -155,4 +182,7 @@ var Homo = function (name) {
 Homo.prototype = new Human();
 
 module.exports = Homo;
-},{"../../Human":2}]},{},[3]);
+},{"../../Human":2}]},{},[4])
+
+
+//# sourceMappingURL=bundle.js.map

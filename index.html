@@ -7,7 +7,24 @@
   <link rel="stylesheet" href="">
 </head>
 <body>
-  
+
+  <fieldset>
+    <legend>Select Player 1:</legend>
+    <input type="text" id="char-name" placeholder="Enter character name"></input>
+
+    <select id="class-select">
+      <option selected="true" disabled="true">Select character class:</option>
+      <option value="dinosaur">Dinosaur</option>
+      <option value="human">Human</option>
+    </select>
+
+    <select id="species-output">
+      <option selected="true" disabled="true">Select type:</option>
+    </select>
+
+
+</fieldset>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="dist/bundle.js"></script>
 </body>
 </html>
