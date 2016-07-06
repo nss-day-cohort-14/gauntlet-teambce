@@ -2,8 +2,8 @@
 
 var Player = require("./Player");
 
-var Human = function (name) {
-  this.name = name;
+var Human = function () {
+  this.class = "Human";
   this.intelligience = null;
   this.attackType = "punch";
   this.weapon = null;
@@ -12,4 +12,3 @@ var Human = function (name) {
 Human.prototype = new Player();
 
 module.exports = Human;
-

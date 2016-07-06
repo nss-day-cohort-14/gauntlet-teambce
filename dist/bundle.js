@@ -18,8 +18,8 @@ module.exports = Dinosaur;
 
 var Player = require("./Player");
 
-var Human = function (name) {
-  this.name = name;
+var Human = function () {
+  this.class = "Human";
   this.intelligience = null;
   this.attackType = "punch";
   this.weapon = null;
@@ -28,7 +28,6 @@ var Human = function (name) {
 Human.prototype = new Player();
 
 module.exports = Human;
-
 
 },{"./Player":3}],3:[function(require,module,exports){
 "use strict";
@@ -95,11 +94,11 @@ let loadSpeciesOption = function( userSpecies ) {
 //Prints user selected character and randomly generate character
 let printPlayers = function() {
   let characterName = $('#char-name').val();
-  let selectedClass;
-  let selectedSpecies = $('#species-output');
+  let selectedClass = $('#class-select').val();
+  let selectedSpecies = $('#species-output').val();
 
   //checks if any of the fields are empty
-  if ($('#char-name').val() === "" || $('#class-select').val() === null || $('#species-output').val() === null) {
+  if (selectedSpecies === "" || selectedClass === null || selectedSpecies === null) {
 
     if ($('#char-name').val() !== "") {
        characterName = $('#char-name').val();
@@ -118,19 +117,78 @@ let printPlayers = function() {
     } else {
       window.alert("Please select a species");
     }
-  } else {
+  }  else {
 
-    if (selectedSpecies === "Tyranosaurus Rex") {
-      var playerOne = new Trex(characterName);
+    //checks if it is a species of Dinosaur class and output results
+    if (selectedSpecies === "Tyranosaurus-Rex") {
+      let playerOne = new Trex(characterName);
       console.log(playerOne);
-      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
     }
 
+    if (selectedSpecies === "Plesiosaurus") {
+      let playerOne = new Plesi(characterName);
+      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
+    }
+
+    if (selectedSpecies === "Terrordactyl") {
+      let playerOne = new Terror(characterName);
+      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
+    }
+
+    //checks if it is a species of Human class and output results
+    if (selectedSpecies === "Cromagnon") {
+      let playerOne = new Cromag(characterName);
+      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
+    }
+
+    if (selectedSpecies === "Future-Sapien") {
+      let playerOne = new Future(characterName);
+      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
+    }
+
+    if (selectedSpecies === "Homo-Sapien") {
+      let playerOne = new Homo(characterName);
+      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
+    }
 
   }
 
-};
+};//end printPlayers function
 
+
+let getPlayerOne = function ( player ) {
+  return player;
+};//end setPlayerOne function
 
 
 //Event listeners for class change drop down
@@ -138,10 +196,6 @@ $('#class-select').change( loadClass );
 
 //Event listener for create button
 $('#create-button').click( printPlayers );
-
-
-
-
 
 
 
@@ -235,13 +289,14 @@ var Human = require("../../Human");
 var Future = function (name) {
   this.name = name;
   this.habitat = "air";
-  this.species = "Future Sapien";
+  this.species = "Future-Sapien";
 };
 
 Future.prototype = new Human();
 
 
 module.exports = Future;
+
 },{"../../Human":2}],10:[function(require,module,exports){
 "use strict";
 
@@ -250,12 +305,13 @@ var Human = require("../../Human");
 var Homo = function (name) {
   this.name = name;
   this.habitat = "water";
-  this.species = "Homo Sapien";
+  this.species = "Homo-Sapien";
 };
 
 Homo.prototype = new Human();
 
 module.exports = Homo;
+
 },{"../../Human":2}]},{},[4])
 
 

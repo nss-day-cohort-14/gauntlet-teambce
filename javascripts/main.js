@@ -47,11 +47,11 @@ let loadSpeciesOption = function( userSpecies ) {
 //Prints user selected character and randomly generate character
 let printPlayers = function() {
   let characterName = $('#char-name').val();
-  let selectedClass;
-  let selectedSpecies = $('#species-output');
+  let selectedClass = $('#class-select').val();
+  let selectedSpecies = $('#species-output').val();
 
   //checks if any of the fields are empty
-  if ($('#char-name').val() === "" || $('#class-select').val() === null || $('#species-output').val() === null) {
+  if (selectedSpecies === "" || selectedClass === null || selectedSpecies === null) {
 
     if ($('#char-name').val() !== "") {
        characterName = $('#char-name').val();
@@ -70,19 +70,78 @@ let printPlayers = function() {
     } else {
       window.alert("Please select a species");
     }
-  } else {
+  }  else {
 
-    if (selectedSpecies === "Tyranosaurus Rex") {
-      var playerOne = new Trex(characterName);
+    //checks if it is a species of Dinosaur class and output results
+    if (selectedSpecies === "Tyranosaurus-Rex") {
+      let playerOne = new Trex(characterName);
       console.log(playerOne);
-      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
     }
 
+    if (selectedSpecies === "Plesiosaurus") {
+      let playerOne = new Plesi(characterName);
+      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
+    }
+
+    if (selectedSpecies === "Terrordactyl") {
+      let playerOne = new Terror(characterName);
+      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
+    }
+
+    //checks if it is a species of Human class and output results
+    if (selectedSpecies === "Cromagnon") {
+      let playerOne = new Cromag(characterName);
+      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
+    }
+
+    if (selectedSpecies === "Future-Sapien") {
+      let playerOne = new Future(characterName);
+      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
+    }
+
+    if (selectedSpecies === "Homo-Sapien") {
+      let playerOne = new Homo(characterName);
+      console.log(playerOne);
+      console.log("Name", playerOne.name);
+      console.log("Class",playerOne.class);
+      console.log("Attack Type", playerOne.attackType);
+      console.log("Health", playerOne.health);
+      console.log("Attack", playerOne.attack);
+    }
 
   }
 
-};
+};//end printPlayers function
 
+
+let getPlayerOne = function ( player ) {
+  return player;
+};//end setPlayerOne function
 
 
 //Event listeners for class change drop down
@@ -90,10 +149,6 @@ $('#class-select').change( loadClass );
 
 //Event listener for create button
 $('#create-button').click( printPlayers );
-
-
-
-
 
 
 
