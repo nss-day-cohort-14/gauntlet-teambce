@@ -78,7 +78,7 @@ let loadSpeciesOption = function( userSpecies ) {
       // console.log(dinosaurs[i]);
       let currentSpecies = new dinosaurs[i]();
       currentSpecies = currentSpecies.species;
-      let currentOption = $(`<option>${currentSpecies}</option>`);
+      let currentOption = $(`<option value=${currentSpecies}>${currentSpecies}</option>`);
       $('#species-output').append(currentOption);
     }
   } else {
@@ -91,12 +91,53 @@ let loadSpeciesOption = function( userSpecies ) {
   }
 };//end loadSpeciesOption
 
-//
+
+//Prints user selected character and randomly generate character
+let printPlayers = function() {
+  let characterName = $('#char-name').val();
+  let selectedClass;
+  let selectedSpecies = $('#species-output');
+
+  //checks if any of the fields are empty
+  if ($('#char-name').val() === "" || $('#class-select').val() === null || $('#species-output').val() === null) {
+
+    if ($('#char-name').val() !== "") {
+       characterName = $('#char-name').val();
+    } else {
+      window.alert("Please enter a name");
+    }
+
+    if ($('#class-select').val() !== null) {
+      selectedClass = $('#class-select').val();
+    } else {
+      window.alert("Please select a class");
+    }
+
+    if ($('#species-output').val() !== null) {
+      selectedSpecies = $('#species-output').val();
+    } else {
+      window.alert("Please select a species");
+    }
+  } else {
+
+    if (selectedSpecies === "Tyranosaurus Rex") {
+      var playerOne = new Trex(characterName);
+      console.log(playerOne);
+      console.log(playerOne);
+    }
+
+
+  }
+
+};
 
 
 
 //Event listeners for class change drop down
 $('#class-select').change( loadClass );
+
+//Event listener for create button
+$('#create-button').click( printPlayers );
 
 
 
@@ -164,12 +205,14 @@ var Dinosaur = require("../../Dinosaur");
 var Trex = function (name) {
   this.name = name;
   this.habitat = "land";
-  this.species = "Tyranosaurus Rex";
+  this.species = "Tyranosaurus-Rex";
+  // this.varName = "Trex"
 };
 
 Trex.prototype = new Dinosaur();
 
 module.exports = Trex;
+
 },{"../../Dinosaur":1}],8:[function(require,module,exports){
 "use strict";
 
