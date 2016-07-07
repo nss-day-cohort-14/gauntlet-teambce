@@ -8,6 +8,8 @@ const Cromag = require("./species/humans/cromag");
 const Future = require("./species/humans/future");
 const Homo = require("./species/humans/homo");
 
+const Create = require("./createPlayers.js");
+
 let dinosaurs = [ Trex, Terror, Plesi ];
 let humans = [ Cromag, Future, Homo ];
 let disabledOption = '<option selected="true" disabled="true">Select type:</option>';
@@ -47,42 +49,35 @@ let loadSpeciesOption = function( userSpecies ) {
 //Prints user selected character and randomly generate character
 let printPlayers = function() {
   let characterName = $('#char-name').val();
-  let selectedClass;
-  let selectedSpecies = $('#species-output');
+  let selectedClass = $('#class-select').val();
+  let selectedSpecies = $('#species-output').val();
 
   //checks if any of the fields are empty
-  if ($('#char-name').val() === "" || $('#class-select').val() === null || $('#species-output').val() === null) {
+  if (characterName === "" || selectedClass === null || selectedSpecies === null) {
 
-    if ($('#char-name').val() !== "") {
-       characterName = $('#char-name').val();
-    } else {
+    if (characterName === "") {
       window.alert("Please enter a name");
     }
 
-    if ($('#class-select').val() !== null) {
-      selectedClass = $('#class-select').val();
-    } else {
+    if (selectedClass === null) {
       window.alert("Please select a class");
     }
 
-    if ($('#species-output').val() !== null) {
-      selectedSpecies = $('#species-output').val();
-    } else {
+    if (selectedSpecies === null) {
       window.alert("Please select a species");
     }
-  } else {
-
-    if (selectedSpecies === "Tyranosaurus Rex") {
-      var playerOne = new Trex(characterName);
-      console.log(playerOne);
-      console.log(playerOne);
-    }
-
-
   }
+  //determines a random opponent based on user selection
+  Create.createPlayerOne(selectedSpecies, characterName);
+  Create.setOpponent(selectedClass);
+};//end of printPlayers
 
-};
 
+//prints characters to DOM
+let printToDom = function(item) {
+  let element = $('#element');
+  element.append(item);
+};//end print to DOM
 
 
 //Event listeners for class change drop down
@@ -90,33 +85,3 @@ $('#class-select').change( loadClass );
 
 //Event listener for create button
 $('#create-button').click( printPlayers );
-
-
-
-
-
-
-
-//Function which grabs character name and passes it to next function
-
-
-//
-
-
-
-
-
-// var bender = new Trex("Bender");
-// var domi = new Terror("Dominic");
-// var ceo = new Plesi("Tim");
-//
-// var steve = new Cromag("Steve");
-// var joe = new Homo("Joe");
-// var john = new Future("John");
-//
-// console.dir(bender);
-// console.dir(domi);
-// console.dir(ceo);
-// console.dir(steve);
-// console.dir(joe);
-// console.dir(john);
