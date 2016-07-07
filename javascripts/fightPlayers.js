@@ -61,7 +61,7 @@ function fightPlayers(playerOne, playerTwo) {
       $("#pOneHealth").text("Health: " + playerOne.health);
       $('#fightLog').prepend(newHeading);
       $('#button-div').empty();
-      let resetButton = $('<button id="resetButton" class="btn btn-primary">New Game!</button>');
+      let resetButton = $('<button id="resetButton" class="btn btn-success center-block">New Game!</button>');
       $('#battleground').prepend(resetButton);
       resetButton.click(resetGamePressed);
     } else if (playerTwo.health <= 0) {
@@ -70,7 +70,7 @@ function fightPlayers(playerOne, playerTwo) {
       $("#pTwoHealth").text("Health: " + playerTwo.health);
       $('#fightLog').prepend(newHeading);
       $('#button-div').empty();
-      let resetButton = $('<button id="resetButton" class="btn btn-primary">New Game!</button>');
+      let resetButton = $('<button id="resetButton" class="btn btn-success center-block">New Game!</button>');
       $('#battleground').prepend(resetButton);
       resetButton.click(resetGamePressed);
     }
