@@ -143,10 +143,10 @@ let printPlayers = function() {
 //function that randomly generates opponent that is not the same class as the users class
 let setOpponent = function ( opponent ) {
 
+  let randomIndex = Math.floor(Math.random() * 3);
   if ( opponent === "dinosaur" ) {
     console.log('Your opponent is human.');
     //function that determines a random number 0-2
-    let randomIndex = Math.floor(Math.random() * 3);
 
     //loop through dinosaurs array and selects a random constructor
     let randomHuman = new humans[randomIndex]("Opponent");
@@ -158,9 +158,6 @@ let setOpponent = function ( opponent ) {
 
   } else {
     console.log('Your opponent is a dinosaur.');
-
-    //function that determines a random number 0-2
-    let randomIndex = Math.floor(Math.random() * 3);
 
     //loop through dinosaurs array and selects a random constructor
     let randomDino = new dinosaurs[randomIndex]("Opponent");
@@ -179,12 +176,6 @@ let printToDom = function(item) {
   let element = $('#element');
   element.append(item);
 };//end print to DOM
-
-
-//Getter function we can possibly export to another file to print
-let getPlayerOne = function ( player ) {
-  return player;
-};//end setPlayerOne function
 
 
 //Event listeners for class change drop down
