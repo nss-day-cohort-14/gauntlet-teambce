@@ -78,7 +78,7 @@ let printPlayers = function() {
   $('#top-form').hide();
   $("#pOneCard").show();
   $("#pTwoCard").show();
-  $('#button-div').append('<button id="attack-button" class="btn btn-primary center-block">Attack!</button>');
+  $('#button-div').append('<button id="attack-button" class="btn btn-primary center-block btn-danger">Attack!</button>');
   $('#attack-button').click(function() {
     fightPlayers(playerOne, playerTwo);
   });
