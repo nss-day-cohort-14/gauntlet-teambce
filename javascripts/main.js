@@ -73,10 +73,10 @@ let printPlayers = function() {
   }
   //determines a random opponent based on user selection
   let playerOne = Create.createPlayerOne(selectedClass, selectedSpecies, characterName);
-  console.log("Player one should print this", playerOne);
   currentAttacker.setCurrentAttacker(playerOne);
   var playerTwo = Create.setOpponent(selectedClass);
-  $('#battleground').append('<button id="attack-button">Attack!</button>');
+  $('#top-form').hide();
+  $('#button-div').append('<button id="attack-button" class="btn btn-primary center-block">Attack!</button>');
   $('#attack-button').click(function() {
     fightPlayers(playerOne, playerTwo);
   });

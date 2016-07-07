@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
-  <fieldset>
+  <fieldset id="top-form">
     <legend>Select Player 1:</legend>
     <input type="text" id="char-name" placeholder="Enter character name"></input>
 
@@ -23,12 +23,25 @@
     </select>
 
     <button id="create-button">Create Character</button>
-
 </fieldset>
 
-  <div id="battleground"></div>
+  <div id="battleground">
+    <div id="pOneHealths" class="healthy col-xs-6">
+      <h1 id="pOneName"></h1>
+      <p id="pOneHealth"></p>
+      <p id="pOneClass"></p>
+    </div>
+    <div id="pTwoHealths" class="healthy col-xs-6">
+      <h1 id="pTwoName"></h1>
+      <p id="pTwoHealth"></p>
+      <p id="pTwoClass"></p>
+    </div>
+    <div id="button-div"></div>
+    <div id="fightLog"></div>
+  </div>
 
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="dist/bundle.js"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+body {
+  margin: 5%;
+};
+
+.healthy {
+  text-align: center;
+};
+
+#top-form {
+  width: 90%;
+}
+
+#fightLog {
+  text-align: center;
+}
