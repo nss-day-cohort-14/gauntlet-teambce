@@ -76,6 +76,8 @@ let printPlayers = function() {
   currentAttacker.setCurrentAttacker(playerOne);
   var playerTwo = Create.setOpponent(selectedClass);
   $('#top-form').hide();
+  $("#pOneCard").show();
+  $("#pTwoCard").show();
   $('#button-div').append('<button id="attack-button" class="btn btn-primary center-block btn-danger">Attack!</button>');
   $('#attack-button').click(function() {
     fightPlayers(playerOne, playerTwo);
