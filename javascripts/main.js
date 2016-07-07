@@ -133,12 +133,55 @@ let printPlayers = function() {
       console.log("Health", playerOne.health);
       console.log("Attack", playerOne.attack);
     }
-
+    //determines a random opponent based on user selection
+    setOpponent(selectedClass);
   }
 
 };//end printPlayers function
 
 
+//function that randomly generates opponent that is not the same class as the users class
+let setOpponent = function ( opponent ) {
+
+  if ( opponent === "dinosaur" ) {
+    console.log('Your opponent is human.');
+    //function that determines a random number 0-2
+    let randomIndex = Math.floor(Math.random() * 3);
+
+    //loop through dinosaurs array and selects a random constructor
+    let randomHuman = new humans[randomIndex]("Opponent");
+    console.log("Name", randomHuman.name);
+    console.log("Class",randomHuman.class);
+    console.log("Attack Type", randomHuman.attackType);
+    console.log("Health", randomHuman.health);
+    console.log("Attack", randomHuman.attack);
+
+  } else {
+    console.log('Your opponent is a dinosaur.');
+
+    //function that determines a random number 0-2
+    let randomIndex = Math.floor(Math.random() * 3);
+
+    //loop through dinosaurs array and selects a random constructor
+    let randomDino = new dinosaurs[randomIndex]("Opponent");
+    console.log("Name", randomDino.name);
+    console.log("Class",randomDino.class);
+    console.log("Attack Type", randomDino.attackType);
+    console.log("Health", randomDino.health);
+    console.log("Attack", randomDino.attack);
+  }
+
+};//end setOpponent function
+
+
+//prints characters to DOM
+let printToDom = function(item) {
+  let element = $('#element');
+  element.append(item);
+};//end print to DOM
+
+
+//Getter function we can possibly export to another file to print
 let getPlayerOne = function ( player ) {
   return player;
 };//end setPlayerOne function
@@ -149,16 +192,6 @@ $('#class-select').change( loadClass );
 
 //Event listener for create button
 $('#create-button').click( printPlayers );
-
-
-
-//Function which grabs character name and passes it to next function
-
-
-//
-
-
-
 
 
 // var bender = new Trex("Bender");
