@@ -1,15 +1,31 @@
+
+
 body {
   margin: 5%;
-};
+  background-color: #F9FBE7;
+}
+
+fieldset {
+	padding-top: 2em;
+	text-align: center;
+	height: 20em;
+	width: 100%;
+}
 
 .healthy {
   text-align: center;
-};
-
-#top-form {
-  width: 90%;
 }
 
 #fightLog {
   text-align: center;
 }
+
+.class-select {
+	width: 15em;
+	display: inline;
+	margin: 1em;
+}
+
+#attack-button {
+	margin-bottom: 3em;
+};
