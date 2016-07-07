@@ -75,7 +75,8 @@ let printPlayers = function() {
   var playerOne = Create.createPlayerOne(selectedSpecies, characterName);
   currentAttacker.setCurrentAttacker(playerOne);
   var playerTwo = Create.setOpponent(selectedClass);
-  $('#battleground').append('<button id="attack-button">Attack!</button>');
+  $('#top-form').hide();
+  $('#button-div').append('<button id="attack-button" class="btn btn-primary center-block">Attack!</button>');
   $('#attack-button').click(function() {
     fightPlayers(playerOne, playerTwo);
   });
