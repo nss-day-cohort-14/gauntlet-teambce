@@ -10,6 +10,10 @@ const Homo = require("./species/humans/homo");
 
 const Create = require("./createPlayers.js");
 
+const fightPlayers = require('./fightPlayers');
+
+const currentAttacker = require('./currentAttacker');
+
 let dinosaurs = [ Trex, Terror, Plesi ];
 let humans = [ Cromag, Future, Homo ];
 let disabledOption = '<option selected="true" disabled="true">Select type:</option>';
@@ -68,8 +72,17 @@ let printPlayers = function() {
     }
   }
   //determines a random opponent based on user selection
-  Create.createPlayerOne(selectedSpecies, characterName);
-  Create.setOpponent(selectedClass);
+  var playerOne = Create.createPlayerOne(selectedSpecies, characterName);
+  currentAttacker.setCurrentAttacker(playerOne);
+  var playerTwo = Create.setOpponent(selectedClass);
+  $('#battleground').append('<button id="attack-button">Attack!</button>');
+  $('#attack-button').click(function() {
+    fightPlayers(playerOne, playerTwo);
+  });
+
+  // console.log("playerOne", playerOne);
+  // console.log("playerTwo", playerTwo);
+
 };//end of printPlayers
 
 

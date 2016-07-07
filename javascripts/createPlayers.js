@@ -96,7 +96,7 @@ let setOpponent = function ( opponent ) {
 
   let randomIndex = Math.floor(Math.random() * 3);
   if ( opponent === "dinosaur" ) {
-    console.log('Your opponent is human.');
+    // console.log('Your opponent is human.');
     //function that determines a random number 0-2
 
     //loop through dinosaurs array and selects a random constructor
@@ -111,7 +111,7 @@ let setOpponent = function ( opponent ) {
   }
 
   if ( opponent === "human" ) {
-    console.log('Your opponent is a dinosaur.');
+    // console.log('Your opponent is a dinosaur.');
 
     //loop through dinosaurs array and selects a random constructor
     let randomDino = new dinosaurs[randomIndex]("Opponent");
