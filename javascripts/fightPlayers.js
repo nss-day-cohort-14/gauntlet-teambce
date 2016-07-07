@@ -7,6 +7,7 @@ const Cromag = require("./species/humans/cromag");
 const Future = require("./species/humans/future");
 const Homo = require("./species/humans/homo");
 const currentAttacker = require('./currentAttacker');
+const resetGamePressed = require('./resetGamePressed');
 
 function fightPlayers(playerOne, playerTwo) {
   var newHeading = document.createElement("h1");
@@ -53,17 +54,25 @@ function fightPlayers(playerOne, playerTwo) {
       }
     }
 
-    // console.log(`Current health for ${playerOne.name}:`, playerOne.health);
-    // console.log(`Current health for ${playerTwo.name}:`, playerTwo.health);
-
     // Test if latest attack caused a win
     if (playerOne.health <= 0) {
-
       newHeading.innerText = `${playerTwo.name} Wins!`;
+      playerOne.health = 0;
+      $("#pOneHealth").text("Health: " + playerOne.health);
       $('#fightLog').prepend(newHeading);
+      $('#button-div').empty();
+      let resetButton = $('<button id="resetButton" class="btn btn-primary">New Game!</button>');
+      $('#battleground').prepend(resetButton);
+      resetButton.click(resetGamePressed);
     } else if (playerTwo.health <= 0) {
       newHeading.innerText = `${playerOne.name} Wins!`;
+      playerTwo.health = 0;
+      $("#pTwoHealth").text("Health: " + playerTwo.health);
       $('#fightLog').prepend(newHeading);
+      $('#button-div').empty();
+      let resetButton = $('<button id="resetButton" class="btn btn-primary">New Game!</button>');
+      $('#battleground').prepend(resetButton);
+      resetButton.click(resetGamePressed);
     }
 
   }

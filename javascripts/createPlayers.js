@@ -14,14 +14,8 @@ const Create = require("./createPlayers.js");
 let dinosaurs = [ Trex, Terror, Plesi ];
 let humans = [ Cromag, Future, Homo ];
 
-//var oneHealthDiv = $('#pOneHealth');
-// var twoHealthDiv = $('#pTwoHealth');
-
 
 let createPlayerOne = function(selectedSpecies, characterName) {
-    // var pOneHead = document.createElement("h1");
-    // var pOneHealth = document.createElement("p");
-    // var pOneClass = document.createElement("p");
     //create a loop that checks the class and based off of class it loops through relative array and selects the character module the user wants
     //Needs two loops
 
@@ -31,6 +25,7 @@ let createPlayerOne = function(selectedSpecies, characterName) {
       $("#pOneName").text("Name: " + playerOne.name);
       $("#pOneHealth").text("Health: " + playerOne.health);
       $("#pOneClass").text("Class: " + playerOne.class);
+      $("#pOneSpecies").text("Species: " + playerOne.species);
       return playerOne;
     }
 
@@ -39,6 +34,7 @@ let createPlayerOne = function(selectedSpecies, characterName) {
       $("#pOneName").text("Name: " + playerOne.name);
       $("#pOneHealth").text("Health: " + playerOne.health);
       $("#pOneClass").text("Class: " + playerOne.class);
+      $("#pOneSpecies").text("Species: " + playerOne.species);
       return playerOne;
     }
 
@@ -47,6 +43,7 @@ let createPlayerOne = function(selectedSpecies, characterName) {
       $("#pOneName").text("Name: " + playerOne.name);
       $("#pOneHealth").text("Health: " + playerOne.health);
       $("#pOneClass").text("Class: " + playerOne.class);
+      $("#pOneSpecies").text("Species: " + playerOne.species);
       return playerOne;
     }
 
@@ -56,6 +53,7 @@ let createPlayerOne = function(selectedSpecies, characterName) {
       $("#pOneName").text("Name: " + playerOne.name);
       $("#pOneHealth").text("Health: " + playerOne.health);
       $("#pOneClass").text("Class: " + playerOne.class);
+      $("#pOneSpecies").text("Species: " + playerOne.species);
       return playerOne;
     }
 
@@ -64,6 +62,7 @@ let createPlayerOne = function(selectedSpecies, characterName) {
       $("#pOneName").text("Name: " + playerOne.name);
       $("#pOneHealth").text("Health: " + playerOne.health);
       $("#pOneClass").text("Class: " + playerOne.class);
+      $("#pOneSpecies").text("Species: " + playerOne.species);
       return playerOne;
     }
 
@@ -72,6 +71,7 @@ let createPlayerOne = function(selectedSpecies, characterName) {
       $("#pOneName").text("Name: " + playerOne.name);
       $("#pOneHealth").text("Health: " + playerOne.health);
       $("#pOneClass").text("Class: " + playerOne.class);
+      $("#pOneSpecies").text("Species: " + playerOne.species);
       return playerOne;
     }
 
@@ -87,39 +87,29 @@ let setOpponent = function ( opponent ) {
 
   let randomIndex = Math.floor(Math.random() * 3);
   if ( opponent === "dinosaur" ) {
-    // console.log('Your opponent is human.');
-    //function that determines a random number 0-2
 
     //loop through dinosaurs array and selects a random constructor
     let randomHuman = new humans[randomIndex]("Opponent");
-    // console.log("Name", randomHuman.name);
-    // console.log("Class",randomHuman.class);
-    // console.log("Class",randomHuman.species);
-    // console.log("Attack Type", randomHuman.attackType);
-    // console.log("Health", randomHuman.health);
-    // console.log("Attack", randomHuman.attack);
+
     $("#pTwoName").text("Name: " + randomHuman.name);
     $("#pTwoHealth").text("Health: " + randomHuman.health);
     $("#pTwoClass").text("Class: " + randomHuman.class);
+    $("#pTwoSpecies").text("Species: " + randomHuman.species);
     return randomHuman;
 
   }
 
   if ( opponent === "human" ) {
-    // console.log('Your opponent is a dinosaur.');
 
     //loop through dinosaurs array and selects a random constructor
     let randomDino = new dinosaurs[randomIndex]("Opponent");
-    // console.log("Name", randomDino.name);
-    // console.log("Class",randomDino.class);
-    // console.log("Class",randomDino.species);
-    // console.log("Attack Type", randomDino.attackType);
-    // console.log("Health", randomDino.health);
-    // console.log("Attack", randomDino.attack);
+
     $("#pTwoName").text("Name: " + randomDino.name);
     $("#pTwoHealth").text("Health: " + randomDino.health);
     $("#pTwoClass").text("Class: " + randomDino.class);
+    $("#pTwoSpecies").text("Species: " + randomDino.species);
     return randomDino;
+
   }
 
 };//end setOpponent function
