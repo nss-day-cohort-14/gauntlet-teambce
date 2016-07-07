@@ -40,6 +40,7 @@ let selectPlayer = function( classID, selectedClass, characterName ) {
           $("#pOneName").text("Name: " + playerOne.name);
           $("#pOneHealth").text("Health: " + playerOne.health);
           $("#pOneClass").text("Class: " + playerOne.class);
+          $("#pOneSpecies").text("Class: " + playerOne.species);
           return playerOne;
         }
 
