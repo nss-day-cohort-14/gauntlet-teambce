@@ -3,38 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
+  <title>BCE BATTLEZ</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <fieldset id="top-form">
     <legend>Select Player 1:</legend>
-    <input type="text" id="char-name" placeholder="Enter character name"></input>
+    <input type="text" id="char-name" placeholder="Enter character name" class="form-control class-select"></input>
 
-    <select id="class-select">
+    <select id="class-select" class="form-control class-select">
       <option selected="true" disabled="true">Select character class:</option>
       <option value="dinosaur">Dinosaur</option>
       <option value="human">Human</option>
     </select>
 
-    <select id="species-output">
+    <select id="species-output" class="form-control class-select">
       <option selected="true" disabled="true">Select type:</option>
     </select>
-
-    <button id="create-button">Create Character</button>
+    <button id="create-button" class="btn btn-info class-select">Create Character</button>
 </fieldset>
 
   <div id="battleground">
-    <div id="pOneHealths" class="healthy col-xs-6">
+    <div id="pOneCard" class="healthy col-xs-6">
       <h1 id="pOneName"></h1>
       <p id="pOneHealth"></p>
       <p id="pOneClass"></p>
+      <p id="pOneSpecies"></p>
     </div>
-    <div id="pTwoHealths" class="healthy col-xs-6">
+    <div id="pTwoCard" class="healthy col-xs-6">
       <h1 id="pTwoName"></h1>
       <p id="pTwoHealth"></p>
       <p id="pTwoClass"></p>
+      <p id="pTwoSpecies"></p>
     </div>
     <div id="button-div"></div>
     <div id="fightLog"></div>

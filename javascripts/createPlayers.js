@@ -14,8 +14,6 @@ const Create = require("./createPlayers.js");
 let dinosaurs = [ Trex, Terror, Plesi ];
 let humans = [ Cromag, Future, Homo ];
 
-//var oneHealthDiv = $('#pOneHealth');
-// var twoHealthDiv = $('#pTwoHealth');
 
 let createPlayerOne = function( selectedClass, selectedSpecies, characterName) {
 
@@ -67,6 +65,7 @@ let setOpponent = function ( opponent ) {
     $("#pTwoName").text("Name: " + randomHuman.name);
     $("#pTwoHealth").text("Health: " + randomHuman.health);
     $("#pTwoClass").text("Class: " + randomHuman.class);
+    $("#pTwoSpecies").text("Species: " + randomHuman.species);
     return randomHuman;
   }
 
@@ -77,6 +76,7 @@ let setOpponent = function ( opponent ) {
     $("#pTwoName").text("Name: " + randomDino.name);
     $("#pTwoHealth").text("Health: " + randomDino.health);
     $("#pTwoClass").text("Class: " + randomDino.class);
+    $("#pTwoSpecies").text("Species: " + randomDino.species);
     return randomDino;
   }
 
