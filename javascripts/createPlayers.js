@@ -15,67 +15,37 @@ let dinosaurs = [ Trex, Terror, Plesi ];
 let humans = [ Cromag, Future, Homo ];
 
 
-let createPlayerOne = function(selectedSpecies, characterName) {
-    //create a loop that checks the class and based off of class it loops through relative array and selects the character module the user wants
-    //Needs two loops
+let createPlayerOne = function( selectedClass, selectedSpecies, characterName) {
 
-    //checks if it is a species of Dinosaur class and output results
-    if (selectedSpecies === "Tyranosaurus-Rex") {
-      let playerOne = new Trex(characterName);
-      $("#pOneName").text("Name: " + playerOne.name);
-      $("#pOneHealth").text("Health: " + playerOne.health);
-      $("#pOneClass").text("Class: " + playerOne.class);
-      $("#pOneSpecies").text("Species: " + playerOne.species);
-      return playerOne;
-    }
-
-    if (selectedSpecies === "Plesiosaurus") {
-      let playerOne = new Plesi(characterName);
-      $("#pOneName").text("Name: " + playerOne.name);
-      $("#pOneHealth").text("Health: " + playerOne.health);
-      $("#pOneClass").text("Class: " + playerOne.class);
-      $("#pOneSpecies").text("Species: " + playerOne.species);
-      return playerOne;
-    }
-
-    if (selectedSpecies === "Terrordactyl") {
-      let playerOne = new Terror(characterName);
-      $("#pOneName").text("Name: " + playerOne.name);
-      $("#pOneHealth").text("Health: " + playerOne.health);
-      $("#pOneClass").text("Class: " + playerOne.class);
-      $("#pOneSpecies").text("Species: " + playerOne.species);
-      return playerOne;
-    }
-
-    //checks if it is a species of Human class and output results
-    if (selectedSpecies === "Cromagnon") {
-      let playerOne = new Cromag(characterName);
-      $("#pOneName").text("Name: " + playerOne.name);
-      $("#pOneHealth").text("Health: " + playerOne.health);
-      $("#pOneClass").text("Class: " + playerOne.class);
-      $("#pOneSpecies").text("Species: " + playerOne.species);
-      return playerOne;
-    }
-
-    if (selectedSpecies === "Future-Sapien") {
-      let playerOne = new Future(characterName);
-      $("#pOneName").text("Name: " + playerOne.name);
-      $("#pOneHealth").text("Health: " + playerOne.health);
-      $("#pOneClass").text("Class: " + playerOne.class);
-      $("#pOneSpecies").text("Species: " + playerOne.species);
-      return playerOne;
-    }
-
-    if (selectedSpecies === "Homo-Sapien") {
-      let playerOne = new Homo(characterName);
-      $("#pOneName").text("Name: " + playerOne.name);
-      $("#pOneHealth").text("Health: " + playerOne.health);
-      $("#pOneClass").text("Class: " + playerOne.class);
-      $("#pOneSpecies").text("Species: " + playerOne.species);
-      return playerOne;
-    }
+  if ( selectedClass === "dinosaur" ) {
+    let store = selectPlayer(dinosaurs, selectedSpecies, characterName);
+    return store;
+  }
+  else if ( selectedClass === "human" ) {
+    let store = selectPlayer(humans, selectedClass, characterName);
+    return store;
+  }
 
 };//end  function
+
+
+let selectPlayer = function( classID, selectedClass, characterName ) {
+
+      let playerOne;
+        //loop through dinosaur array and find the user selected species
+        for ( let i = 0; i < classID.length; i++ ) {
+          //instatiate new object and set to player one
+          playerOne = new classID[i](characterName);
+          //write info from the player object to the page
+          $("#pOneName").text("Name: " + playerOne.name);
+          $("#pOneHealth").text("Health: " + playerOne.health);
+          $("#pOneClass").text("Class: " + playerOne.class);
+          $("#pOneSpecies").text("Class: " + playerOne.species);
+          return playerOne;
+        }
+
+};//end selectPlayer
+
 
 
 //function that randomly generates opponent that is not the same class as the users class
@@ -85,31 +55,30 @@ let setOpponent = function ( opponent ) {
   var pTwoHealth = document.createElement("p");
   var pTwoClass = document.createElement("p");
 
+  //function that determines a random number 0-2
   let randomIndex = Math.floor(Math.random() * 3);
-  if ( opponent === "dinosaur" ) {
 
+
+  if ( opponent === "dinosaur" ) {
     //loop through dinosaurs array and selects a random constructor
     let randomHuman = new humans[randomIndex]("Opponent");
-
+    //prints opponents object info to document
     $("#pTwoName").text("Name: " + randomHuman.name);
     $("#pTwoHealth").text("Health: " + randomHuman.health);
     $("#pTwoClass").text("Class: " + randomHuman.class);
     $("#pTwoSpecies").text("Species: " + randomHuman.species);
     return randomHuman;
-
   }
 
   if ( opponent === "human" ) {
-
     //loop through dinosaurs array and selects a random constructor
     let randomDino = new dinosaurs[randomIndex]("Opponent");
-
+    //prints opponents object info to document
     $("#pTwoName").text("Name: " + randomDino.name);
     $("#pTwoHealth").text("Health: " + randomDino.health);
     $("#pTwoClass").text("Class: " + randomDino.class);
     $("#pTwoSpecies").text("Species: " + randomDino.species);
     return randomDino;
-
   }
 
 };//end setOpponent function

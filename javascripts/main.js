@@ -72,7 +72,7 @@ let printPlayers = function() {
     }
   }
   //determines a random opponent based on user selection
-  var playerOne = Create.createPlayerOne(selectedSpecies, characterName);
+  let playerOne = Create.createPlayerOne(selectedClass, selectedSpecies, characterName);
   currentAttacker.setCurrentAttacker(playerOne);
   var playerTwo = Create.setOpponent(selectedClass);
   $('#top-form').hide();
@@ -87,13 +87,6 @@ let printPlayers = function() {
   // console.log("playerTwo", playerTwo);
 
 };//end of printPlayers
-
-
-//prints characters to DOM
-let printToDom = function(item) {
-  let element = $('#element');
-  element.append(item);
-};//end print to DOM
 
 
 //Event listeners for class change drop down
