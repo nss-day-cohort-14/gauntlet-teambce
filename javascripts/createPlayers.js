@@ -15,79 +15,94 @@ let dinosaurs = [ Trex, Terror, Plesi ];
 let humans = [ Cromag, Future, Homo ];
 
 
-let createPlayerOne = function(selectedSpecies, characterName) {
+let createPlayerOne = function( selectedClass, selectedSpecies, characterName) {
 
     //create a loop that checks the class and based off of class it loops through relative array and selects the character module the user wants
     //Needs two loops
 
-    //checks if it is a species of Dinosaur class and output results
-    if (selectedSpecies === "Tyranosaurus-Rex") {
-      let playerOne = new Trex(characterName);
-      // console.log(playerOne);
-      // console.log("Name", playerOne.name);
-      // console.log("Class",playerOne.class);
-      // console.log("Attack Type", playerOne.attackType);
-      // console.log("Health", playerOne.health);
-      // console.log("Attack", playerOne.attack);
-      return playerOne;
-    }
+    let playerOne;
+    if ( selectedClass === "dinosaur" ) {
+      for ( let i = 0; i < dinosaurs.length; i++ ) {
+        playerOne = new dinosaurs[i](characterName);
+        console.log(playerOne);
+        return playerOne;
+      }
+    } else if ( selectedClass === "human" ) {
+        for ( let i = 0; i < humans.length; i++ ) {
+          playerOne = new humans[i](characterName);
+          console.log(playerOne);
+          return playerOne;
+        }
+      }//end of conditional statement
 
-    if (selectedSpecies === "Plesiosaurus") {
-      let playerOne = new Plesi(characterName);
-      // console.log(playerOne);
-      // console.log("Name", playerOne.name);
-      // console.log("Class",playerOne.class);
-      // console.log("Attack Type", playerOne.attackType);
-      // console.log("Health", playerOne.health);
-      // console.log("Attack", playerOne.attack);
-      return playerOne;
-    }
-
-    if (selectedSpecies === "Terrordactyl") {
-      let playerOne = new Terror(characterName);
-      // console.log(playerOne);
-      // console.log("Name", playerOne.name);
-      // console.log("Class",playerOne.class);
-      // console.log("Attack Type", playerOne.attackType);
-      // console.log("Health", playerOne.health);
-      // console.log("Attack", playerOne.attack);
-      return playerOne;
-    }
-
-    //checks if it is a species of Human class and output results
-    if (selectedSpecies === "Cromagnon") {
-      let playerOne = new Cromag(characterName);
-      // console.log(playerOne);
-      // console.log("Name", playerOne.name);
-      // console.log("Class",playerOne.class);
-      // console.log("Attack Type", playerOne.attackType);
-      // console.log("Health", playerOne.health);
-      // console.log("Attack", playerOne.attack);
-      return playerOne;
-    }
-
-    if (selectedSpecies === "Future-Sapien") {
-      let playerOne = new Future(characterName);
-      // console.log(playerOne);
-      // console.log("Name", playerOne.name);
-      // console.log("Class",playerOne.class);
-      // console.log("Attack Type", playerOne.attackType);
-      // console.log("Health", playerOne.health);
-      // console.log("Attack", playerOne.attack);
-      return playerOne;
-    }
-
-    if (selectedSpecies === "Homo-Sapien") {
-      let playerOne = new Homo(characterName);
-      // console.log(playerOne);
-      // console.log("Name", playerOne.name);
-      // console.log("Class",playerOne.class);
-      // console.log("Attack Type", playerOne.attackType);
-      // console.log("Health", playerOne.health);
-      // console.log("Attack", playerOne.attack);
-      return playerOne;
-    }
-
+//     //checks if it is a species of Dinosaur class and output results
+//     if (selectedSpecies === "Tyranosaurus-Rex") {
+//       let playerOne = new Trex(characterName);
+//       // console.log(playerOne);
+//       // console.log("Name", playerOne.name);
+//       // console.log("Class",playerOne.class);
+//       // console.log("Attack Type", playerOne.attackType);
+//       // console.log("Health", playerOne.health);
+//       // console.log("Attack", playerOne.attack);
+//       return playerOne;
+//     }
+//
+//     if (selectedSpecies === "Plesiosaurus") {
+//       let playerOne = new Plesi(characterName);
+//       // console.log(playerOne);
+//       // console.log("Name", playerOne.name);
+//       // console.log("Class",playerOne.class);
+//       // console.log("Attack Type", playerOne.attackType);
+//       // console.log("Health", playerOne.health);
+//       // console.log("Attack", playerOne.attack);
+//       return playerOne;
+//     }
+//
+//     if (selectedSpecies === "Terrordactyl") {
+//       let playerOne = new Terror(characterName);
+//       // console.log(playerOne);
+//       // console.log("Name", playerOne.name);
+//       // console.log("Class",playerOne.class);
+//       // console.log("Attack Type", playerOne.attackType);
+//       // console.log("Health", playerOne.health);
+//       // console.log("Attack", playerOne.attack);
+//       return playerOne;
+//     }
+//
+//     //checks if it is a species of Human class and output results
+//     if (selectedSpecies === "Cromagnon") {
+//       let playerOne = new Cromag(characterName);
+//       // console.log(playerOne);
+//       // console.log("Name", playerOne.name);
+//       // console.log("Class",playerOne.class);
+//       // console.log("Attack Type", playerOne.attackType);
+//       // console.log("Health", playerOne.health);
+//       // console.log("Attack", playerOne.attack);
+//       return playerOne;
+//     }
+//
+//     if (selectedSpecies === "Future-Sapien") {
+//       let playerOne = new Future(characterName);
+//       // console.log(playerOne);
+//       // console.log("Name", playerOne.name);
+//       // console.log("Class",playerOne.class);
+//       // console.log("Attack Type", playerOne.attackType);
+//       // console.log("Health", playerOne.health);
+//       // console.log("Attack", playerOne.attack);
+//       return playerOne;
+//     }
+//
+//     if (selectedSpecies === "Homo-Sapien") {
+//       let playerOne = new Homo(characterName);
+//       // console.log(playerOne);
+//       // console.log("Name", playerOne.name);
+//       // console.log("Class",playerOne.class);
+//       // console.log("Attack Type", playerOne.attackType);
+//       // console.log("Health", playerOne.health);
+//       // console.log("Attack", playerOne.attack);
+//       return playerOne;
+//     }
+//
 };//end  function
 
 

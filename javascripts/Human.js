@@ -14,7 +14,7 @@ var Human = function () {
   this.health = Math.floor(Math.random() * (this.healthMax - this.healthMin + 1)) + this.healthMin;
   this.attack = function() {
     return Math.floor(Math.random() * (this.attackMax - this.attackMin + 1)) + this.attackMin;
-  }
+  };
 };
 
 Human.prototype = new Player();
