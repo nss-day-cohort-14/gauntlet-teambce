@@ -27,9 +27,10 @@ function fightPlayers(playerOne, playerTwo) {
         // Set playerTwo to be currentAttacker
         currentAttacker.setCurrentAttacker(playerTwo);
       } else {
-        playerTwo.health = playerTwo.health - playerOne.attack();
+        let attackPoints = playerOne.attack();
+        playerTwo.health = playerTwo.health - attackPoints;
         $("#pTwoHealth").text("Health: " + playerTwo.health);
-        attackLog = `${playerOne.name} attacked ${playerTwo.name} with a ${playerOne.attackType} and dealt ${playerOne.attack()} hit points`;
+        attackLog = `${playerOne.name} attacked ${playerTwo.name} with a ${playerOne.attackType} and dealt ${attackPoints} hit points`;
         newP.innerText = attackLog;
         $('#fightLog').prepend(newP);
         // Set playerTwo to be currentAttacker
@@ -44,9 +45,10 @@ function fightPlayers(playerOne, playerTwo) {
         // Set playerOne to be currentAttacker
         currentAttacker.setCurrentAttacker(playerOne);
       } else {
-        playerOne.health = playerOne.health - playerTwo.attack();
+        let attackPoints = playerTwo.attack();
+        playerOne.health = playerOne.health - attackPoints;
         $("#pOneHealth").text("Health: " + playerOne.health);
-        attackLog = `${playerTwo.name} attacked ${playerOne.name} with a ${playerTwo.attackType} and dealt ${playerTwo.attack()} hit points`;
+        attackLog = `${playerTwo.name} attacked ${playerOne.name} with a ${playerTwo.attackType} and dealt ${attackPoints} hit points`;
         newP.innerText = attackLog;
         $('#fightLog').prepend(newP);
         // Set playerTwo to be currentAttacker
