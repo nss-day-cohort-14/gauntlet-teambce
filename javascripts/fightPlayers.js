@@ -32,7 +32,7 @@ function fightPlayers(playerOne, playerTwo) {
 
 
         //Remove animation classes for each div if there is a miss to reset animations
-        // playerOne.addClass('PlayerMiss');
+        playerOneDiv.addClass('PlayerMiss');
         playerOneDiv.removeClass('AttackedPlayerDiv');
         playerTwoDiv.removeClass('AttackedPlayerDiv');
 
@@ -50,15 +50,17 @@ function fightPlayers(playerOne, playerTwo) {
         $('#fightLog').prepend(newP);
 
         //animation begin
+
         playerTwoDiv.addClass('AttackedPlayerDiv');
         playerOneDiv.removeClass('AttackedPlayerDiv');
+        playerOneDiv.removeClass('PlayerMiss');
+        playerTwoDiv.removeClass('PlayerMiss');
 
         // Set playerTwo to be currentAttacker
         currentAttacker.setCurrentAttacker(playerTwo);
       }
     } else if (currentAttacker.getCurrentAttacker() === playerTwo) {
       // RANDOM MISS
-
       //add player battle log styling
       $(newP).addClass('right');
 
@@ -68,6 +70,7 @@ function fightPlayers(playerOne, playerTwo) {
         $('#fightLog').prepend(newP);
 
         //Remove animation classes for each div if there is a miss to reset animations
+        playerTwoDiv.addClass('PlayerMiss');
         playerOneDiv.removeClass('AttackedPlayerDiv');
         playerTwoDiv.removeClass('AttackedPlayerDiv');
 
@@ -86,6 +89,8 @@ function fightPlayers(playerOne, playerTwo) {
         //animation begin
         playerOneDiv.addClass('AttackedPlayerDiv');
         playerTwoDiv.removeClass('AttackedPlayerDiv');
+        playerOneDiv.removeClass('PlayerMiss');
+        playerTwoDiv.removeClass('PlayerMiss');
 
         // Set playerTwo to be currentAttacker
         currentAttacker.setCurrentAttacker(playerOne);
