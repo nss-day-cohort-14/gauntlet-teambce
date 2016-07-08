@@ -1,6 +1,7 @@
 body {
   background-color: #26A69A;
   margin: 5%;
+  font-family: 'Almendra SC', serif;
 }
 
 p {
@@ -46,6 +47,7 @@ fieldset {
 
 #headings {
   text-align: center;
+  font-family: 'Almendra SC', serif;
 }
 
 /******************************
