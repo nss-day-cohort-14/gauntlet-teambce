@@ -17,16 +17,20 @@ function fightPlayers(playerOne, playerTwo) {
   // var currentAttacker = playerOne;
 
   if (playerOne.health > 0 && playerTwo.health > 0) {
-    var newP = document.createElement("p");
+    // let newP = document.createElement("p");
     var attackLog = null;
 
     // Attack Math
     if (currentAttacker.getCurrentAttacker() === playerOne) {
+      let newP = document.createElement("p");
+      $(newP).addClass('left');
       // RANDOM MISS
       if ((Math.floor(Math.random() * (12 - 1 + 1)) + 1) === 3) {
         attackLog = `${playerOne.name} missed with their ${playerOne.attackType}! Oops!`;
         newP.innerText = attackLog;
+        // //add player battle log styling
         $('#fightLog').prepend(newP);
+
 
         //Remove animation classes for each div if there is a miss to reset animations
         playerOneDiv.removeClass('AttackedPlayerDiv');
@@ -35,6 +39,10 @@ function fightPlayers(playerOne, playerTwo) {
         // Set playerTwo to be currentAttacker
         currentAttacker.setCurrentAttacker(playerTwo);
       } else {
+        //add player battle log styling
+        let newP = document.createElement("p");
+        $(newP).addClass('left');
+
         playerTwo.health = playerTwo.health - playerOne.attack();
         $("#pTwoHealth").text("Health: " + playerTwo.health);
         attackLog = `${playerOne.name} attacked ${playerTwo.name} with a ${playerOne.attackType} and dealt ${playerOne.attack()} hit points`;
@@ -50,11 +58,15 @@ function fightPlayers(playerOne, playerTwo) {
       }
     } else if (currentAttacker.getCurrentAttacker() === playerTwo) {
       // RANDOM MISS
+
+      //add player battle log styling
+      let newP = document.createElement("p");
+      $(newP).addClass('right');
+
       if ((Math.floor(Math.random() * (12 - 1 + 1)) + 1) === 3) {
         attackLog = `${playerTwo.name} missed with their ${playerTwo.attackType}! Oops!`;
         newP.innerText = attackLog;
         $('#fightLog').prepend(newP);
-        // Set playerOne to be currentAttacker
 
         //Remove animation classes for each div if there is a miss to reset animations
         playerOneDiv.removeClass('AttackedPlayerDiv');
@@ -62,6 +74,10 @@ function fightPlayers(playerOne, playerTwo) {
 
         currentAttacker.setCurrentAttacker(playerOne);
       } else {
+        //add player battle log styling
+        let newP = document.createElement("p");
+        $(newP).addClass('right');
+
         playerOne.health = playerOne.health - playerTwo.attack();
         $("#pOneHealth").text("Health: " + playerOne.health);
         attackLog = `${playerTwo.name} attacked ${playerOne.name} with a ${playerTwo.attackType} and dealt ${playerTwo.attack()} hit points`;

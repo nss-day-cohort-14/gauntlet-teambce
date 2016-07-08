@@ -16,9 +16,9 @@ fieldset {
   text-align: center;
 }
 
-#fightLog {
+/*#fightLog {
   text-align: center;
-}
+}*/
 
 .class-select {
 	width: 15em;
@@ -38,6 +38,21 @@ fieldset {
 /******************************
 Animations
 ******************************/
+
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+
+/******************************
+Animations
+******************************/
+
 
 .AttackedPlayerDiv {
   animation: attacked-player-div 2s 0s 1 ease-out;
