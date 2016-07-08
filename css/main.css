@@ -33,3 +33,39 @@ fieldset {
 /*#resetButton {
   display: block;
 }*/
+
+
+/******************************
+Animations
+******************************/
+
+.AttackedPlayerDiv {
+  animation: attacked-player-div 2s 0s 1 ease-out;
+}
+
+@keyframes attacked-player-div {
+  0% {
+    background: rgba(255, 0, 0, 0.9);
+    transform: translateX(5px);
+  }
+  20% {
+    background: rgba(255, 0, 0, 0.1);
+    transform: translateX(-5px);
+  }
+  40% {
+    background: rgba(255, 0, 0, 0.5);
+    transform: translateX(5px);
+  }
+  60% {
+    background: rgba(255, 0, 0, 0.1);
+    transform: translateX(-5px);
+  }
+  80% {
+    background: rgba(255, 0, 0, 0.5);
+    transform: translateX(5px);
+  }
+  100% {
+    background: rgba(255, 0, 0, 0.9);
+    transform: translateX(-5px);
+  }
+}/*end keyframe*/

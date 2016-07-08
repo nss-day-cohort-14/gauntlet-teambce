@@ -11,6 +11,9 @@ const resetGamePressed = require('./resetGamePressed');
 
 function fightPlayers(playerOne, playerTwo) {
   var newHeading = document.createElement("h1");
+  let playerOneDiv = $('#pOneCard');
+  let playerTwoDiv = $('#pTwoCard');
+
   // var currentAttacker = playerOne;
 
   if (playerOne.health > 0 && playerTwo.health > 0) {
@@ -24,6 +27,11 @@ function fightPlayers(playerOne, playerTwo) {
         attackLog = `${playerOne.name} missed with their ${playerOne.attackType}! Oops!`;
         newP.innerText = attackLog;
         $('#fightLog').prepend(newP);
+
+        //Remove animation classes for each div if there is a miss to reset animations
+        playerOneDiv.removeClass('AttackedPlayerDiv');
+        playerTwoDiv.removeClass('AttackedPlayerDiv');
+
         // Set playerTwo to be currentAttacker
         currentAttacker.setCurrentAttacker(playerTwo);
       } else {
@@ -32,6 +40,11 @@ function fightPlayers(playerOne, playerTwo) {
         attackLog = `${playerOne.name} attacked ${playerTwo.name} with a ${playerOne.attackType} and dealt ${playerOne.attack()} hit points`;
         newP.innerText = attackLog;
         $('#fightLog').prepend(newP);
+
+        //animation begin
+        playerTwoDiv.addClass('AttackedPlayerDiv');
+        playerOneDiv.removeClass('AttackedPlayerDiv');
+
         // Set playerTwo to be currentAttacker
         currentAttacker.setCurrentAttacker(playerTwo);
       }
@@ -42,6 +55,11 @@ function fightPlayers(playerOne, playerTwo) {
         newP.innerText = attackLog;
         $('#fightLog').prepend(newP);
         // Set playerOne to be currentAttacker
+
+        //Remove animation classes for each div if there is a miss to reset animations
+        playerOneDiv.removeClass('AttackedPlayerDiv');
+        playerTwoDiv.removeClass('AttackedPlayerDiv');
+
         currentAttacker.setCurrentAttacker(playerOne);
       } else {
         playerOne.health = playerOne.health - playerTwo.attack();
@@ -49,6 +67,11 @@ function fightPlayers(playerOne, playerTwo) {
         attackLog = `${playerTwo.name} attacked ${playerOne.name} with a ${playerTwo.attackType} and dealt ${playerTwo.attack()} hit points`;
         newP.innerText = attackLog;
         $('#fightLog').prepend(newP);
+
+        //animation begin
+        playerOneDiv.addClass('AttackedPlayerDiv');
+        playerTwoDiv.removeClass('AttackedPlayerDiv');
+
         // Set playerTwo to be currentAttacker
         currentAttacker.setCurrentAttacker(playerOne);
       }
