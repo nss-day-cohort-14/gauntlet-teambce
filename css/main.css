@@ -31,7 +31,6 @@ fieldset {
 }
 
 #fightLog {
-  text-align: center;
   background-color: #4DB6AC;
 }
 
@@ -41,3 +40,91 @@ fieldset {
 	margin: 1em;
 }
 
+#attack-button {
+	margin-bottom: 3em;
+}
+
+/*#resetButton {
+  display: block;
+}*/
+
+
+/******************************
+Animations
+******************************/
+
+
+.left {
+  text-align: left;
+  padding: .5em;
+}
+
+.right {
+  text-align: right;
+  padding: .5em;
+}
+
+
+/******************************
+Animations
+******************************/
+
+
+/***  Added damage animation  ***/
+.AttackedPlayerDiv {
+  animation: attacked-player-div 2s 0s 1 ease-out;
+}
+
+@keyframes attacked-player-div {
+  0% {
+    background: rgba(255, 0, 0, 0.9);
+    transform: translateX(5px);
+  }
+  20% {
+    background: rgba(255, 0, 0, 0.1);
+    transform: translateX(-5px);
+  }
+  40% {
+    background: rgba(255, 0, 0, 0.5);
+    transform: translateX(5px);
+  }
+  60% {
+    background: rgba(255, 0, 0, 0.1);
+    transform: translateX(-5px);
+  }
+  80% {
+    background: rgba(255, 0, 0, 0.5);
+    transform: translateX(5px);
+  }
+  100% {
+    background: rgba(255, 0, 0, 0.9);
+    transform: translateX(-5px);
+  }
+}/*end keyframe*/
+
+/***  END damage animation  ***********/
+
+
+/***  Added miss animation  ***/
+
+.PlayerMiss {
+  animation: player-miss 2s 0s 1 ease-out;
+}
+
+@keyframes player-miss {
+  0% {
+    transform: rotateX(0deg);
+  }
+  25% {
+    transform: rotateX(90deg);
+  }
+  50% {
+    transform: rotateX(180deg);
+  }
+  75% {
+    transform: rotateX(270deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}

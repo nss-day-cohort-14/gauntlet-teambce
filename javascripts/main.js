@@ -70,6 +70,7 @@ let printPlayers = function() {
     if (selectedSpecies === null) {
       window.alert("Please select a species");
     }
+    return;
   }
   //determines a random opponent based on user selection
   let playerOne = Create.createPlayerOne(selectedClass, selectedSpecies, characterName);
