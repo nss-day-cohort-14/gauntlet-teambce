@@ -6,15 +6,33 @@ var Dinosaur = function () {
   this.class = "Dinosaur";
   this.strength = null;
   this.mutation = null;
-  this.attackType = "bite";
+  this.attackType = [
+    {
+      attack: "bite",
+      attackMin: 7,
+      attackMax: 12
+    },
+    {
+      attack: "growl",
+      attackMin: 5,
+      attackMax: 9
+    },
+    {
+      attack: "tailwhip",
+      attackMin: 8,
+      attackMax: 10
+    },
+    {
+      attack: "slash",
+      attackMin: 6,
+      attackMax: 10
+    }
+
+  ];
   this.healthMin = 85;
   this.healthMax = 125;
-  this.attackMin = 7;
-  this.attackMax = 12;
   this.health = Math.floor(Math.random() * (this.healthMax - this.healthMin + 1)) + this.healthMin;
-  this.attack = function() {
-    return Math.floor(Math.random() * (this.attackMax - this.attackMin + 1)) + this.attackMin;
-  };
+
 };
 
 Dinosaur.prototype = new Player();

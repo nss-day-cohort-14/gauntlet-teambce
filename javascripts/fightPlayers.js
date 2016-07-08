@@ -25,7 +25,9 @@ function fightPlayers(playerOne, playerTwo) {
       $(newP).addClass('left');
       // RANDOM MISS
       if ((Math.floor(Math.random() * (12 - 1 + 1)) + 1) === 3) {
-        attackLog = `<b>${playerOne.name}</b> missed with their <b>${playerOne.attackType}</b>! Oops!`;
+        let attackIndex = Math.floor(Math.random() * (4 - 0)) + 0;
+        let selectedAttackName = playerTwo.attackType[attackIndex].attack;
+        attackLog = `<b>${playerOne.name}</b> missed with their <b>${selectedAttackName}</b>! Oops!`;
         newP.innerHTML = attackLog;
         // //add player battle log styling
         $('#fightLog').prepend(newP);
@@ -42,10 +44,18 @@ function fightPlayers(playerOne, playerTwo) {
         //add player battle log styling
         $(newP).addClass('left');
 
-        let attackPoints = playerOne.attack();
+        var attackIndex = Math.floor(Math.random() * (4 - 0)) + 0;
+        console.log(attackIndex);
+        let selectedAttack = playerOne.attackType[attackIndex];
+        console.log(selectedAttack);
+        let selectedAttackName = selectedAttack.attack;
+        console.log(selectedAttackName);
+        let attackPoints = Math.floor(Math.random() * (selectedAttack.attackMax - selectedAttack.attackMin + 1)) + selectedAttack.attackMin;
+
+        //let attackPoints = playerOne.attack();
         playerTwo.health = playerTwo.health - attackPoints;
         $("#pTwoHealth").text("Health: " + playerTwo.health);
-        attackLog = `<b>${playerOne.name}</b> attacked <b>${playerTwo.name}</b> with a <b>${playerOne.attackType}</b> and dealt <b>${attackPoints}</b> hit points`;
+        attackLog = `<b>${playerOne.name}</b> attacked <b>${playerTwo.name}</b> with a <b>${selectedAttackName}</b> and dealt <b>${attackPoints}</b> hit points`;
         newP.innerHTML = attackLog;
         $('#fightLog').prepend(newP);
 
@@ -65,7 +75,9 @@ function fightPlayers(playerOne, playerTwo) {
       $(newP).addClass('right');
 
       if ((Math.floor(Math.random() * (12 - 1 + 1)) + 1) === 3) {
-        attackLog = `<b>${playerTwo.name}</b> missed with their <b>${playerTwo.attackType}</b>! Oops!`;
+        let attackIndex = Math.floor(Math.random() * (4 - 0)) + 0;
+        let selectedAttackName = playerTwo.attackType[attackIndex].attack;
+        attackLog = `<b>${playerTwo.name}</b> missed with their <b>${selectedAttackName}</b>! Oops!`;
         newP.innerHTML = attackLog;
         $('#fightLog').prepend(newP);
 
@@ -79,10 +91,15 @@ function fightPlayers(playerOne, playerTwo) {
         //add player battle log styling
         $(newP).addClass('right');
 
-        let attackPoints = playerTwo.attack();
+        let attackIndex = Math.floor(Math.random() * (4 - 0)) + 0;
+        let selectedAttack = playerTwo.attackType[attackIndex];
+        let selectedAttackName = selectedAttack.attack;
+        let attackPoints = Math.floor(Math.random() * (selectedAttack.attackMax - selectedAttack.attackMin + 1)) + selectedAttack.attackMin;
+
+        //let attackPoints = playerTwo.attack();
         playerOne.health = playerOne.health - attackPoints;
         $("#pOneHealth").text("Health: " + playerOne.health);
-        attackLog = `<b>${playerTwo.name}</b> attacked <b>${playerOne.name}</b> with a <b>${playerTwo.attackType}</b> and dealt <b>${attackPoints}</b> hit points`;
+        attackLog = `<b>${playerTwo.name}</b> attacked <b>${playerOne.name}</b> with a <b>${selectedAttackName}</b> and dealt <b>${attackPoints}</b> hit points`;
         newP.innerHTML = attackLog;
         $('#fightLog').prepend(newP);
 
