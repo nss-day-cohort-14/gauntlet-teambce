@@ -44,10 +44,9 @@ fieldset {
 	margin-bottom: 3em;
 }
 
-/*#resetButton {
-  display: block;
-}*/
-
+#headings {
+  text-align: center;
+}
 
 /******************************
 Animations

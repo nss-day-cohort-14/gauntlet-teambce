@@ -118,7 +118,7 @@ function fightPlayers(playerOne, playerTwo) {
     if (playerOne.health <= 0) {
       newHeading.innerText = `${playerTwo.name} Wins!`;
       playerOne.health = 0;
-      $('#pOneCard, #pTwoCard').empty();
+      $('#pOneName, #pTwoName, #pOneHealth, #pOneClass, #pOneSpecies, #pTwoHealth, #pTwoClass, #pTwoSpecies').empty();
       // $("#pOneHealth").text("Health: " + playerOne.health);
       $('#fightLog').prepend(newHeading);
       $('#button-div').empty();
@@ -128,7 +128,7 @@ function fightPlayers(playerOne, playerTwo) {
     } else if (playerTwo.health <= 0) {
       newHeading.innerText = `${playerOne.name} Wins!`;
       playerTwo.health = 0;
-      $('#pOneCard, #pTwoCard').empty();
+      $('#pOneName, #pTwoName, #pOneHealth, #pOneClass, #pOneSpecies, #pTwoHealth, #pTwoClass, #pTwoSpecies').empty();
       // $("#pTwoHealth").text("Health: " + playerTwo.health);
       $('#fightLog').prepend(newHeading);
       $('#button-div').empty();

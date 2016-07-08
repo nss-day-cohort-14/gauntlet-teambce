@@ -52,6 +52,7 @@ let loadSpeciesOption = function( userSpecies ) {
 
 //Prints user selected character and randomly generate character
 let printPlayers = function() {
+  $('#headings').hide();
   let characterName = $('#char-name').val();
   let selectedClass = $('#class-select').val();
   let selectedSpecies = $('#species-output').val();
