@@ -17,22 +17,22 @@ function fightPlayers(playerOne, playerTwo) {
   // var currentAttacker = playerOne;
 
   if (playerOne.health > 0 && playerTwo.health > 0) {
-    // let newP = document.createElement("p");
+    let newP = document.createElement("p");
     var attackLog = null;
 
     // Attack Math
     if (currentAttacker.getCurrentAttacker() === playerOne) {
-      let newP = document.createElement("p");
       $(newP).addClass('left');
       // RANDOM MISS
       if ((Math.floor(Math.random() * (12 - 1 + 1)) + 1) === 3) {
-        attackLog = `${playerOne.name} missed with their ${playerOne.attackType}! Oops!`;
-        newP.innerText = attackLog;
+        attackLog = `<b>${playerOne.name}</b> missed with their <b>${playerOne.attackType}</b>! Oops!`;
+        newP.innerHTML = attackLog;
         // //add player battle log styling
         $('#fightLog').prepend(newP);
 
 
         //Remove animation classes for each div if there is a miss to reset animations
+        // playerOne.addClass('PlayerMiss');
         playerOneDiv.removeClass('AttackedPlayerDiv');
         playerTwoDiv.removeClass('AttackedPlayerDiv');
 
@@ -40,13 +40,13 @@ function fightPlayers(playerOne, playerTwo) {
         currentAttacker.setCurrentAttacker(playerTwo);
       } else {
         //add player battle log styling
-        let newP = document.createElement("p");
         $(newP).addClass('left');
 
-        playerTwo.health = playerTwo.health - playerOne.attack();
+        let attackPoints = playerOne.attack();
+        playerTwo.health = playerTwo.health - attackPoints;
         $("#pTwoHealth").text("Health: " + playerTwo.health);
-        attackLog = `${playerOne.name} attacked ${playerTwo.name} with a ${playerOne.attackType} and dealt ${playerOne.attack()} hit points`;
-        newP.innerText = attackLog;
+        attackLog = `<b>${playerOne.name}</b> attacked <b>${playerTwo.name}</b> with a <b>${playerOne.attackType}</b> and dealt <b>${attackPoints}</b> hit points`;
+        newP.innerHTML = attackLog;
         $('#fightLog').prepend(newP);
 
         //animation begin
@@ -60,12 +60,11 @@ function fightPlayers(playerOne, playerTwo) {
       // RANDOM MISS
 
       //add player battle log styling
-      let newP = document.createElement("p");
       $(newP).addClass('right');
 
       if ((Math.floor(Math.random() * (12 - 1 + 1)) + 1) === 3) {
-        attackLog = `${playerTwo.name} missed with their ${playerTwo.attackType}! Oops!`;
-        newP.innerText = attackLog;
+        attackLog = `<b>${playerTwo.name}</b> missed with their <b>${playerTwo.attackType}</b>! Oops!`;
+        newP.innerHTML = attackLog;
         $('#fightLog').prepend(newP);
 
         //Remove animation classes for each div if there is a miss to reset animations
@@ -75,13 +74,13 @@ function fightPlayers(playerOne, playerTwo) {
         currentAttacker.setCurrentAttacker(playerOne);
       } else {
         //add player battle log styling
-        let newP = document.createElement("p");
         $(newP).addClass('right');
 
-        playerOne.health = playerOne.health - playerTwo.attack();
+        let attackPoints = playerTwo.attack();
+        playerOne.health = playerOne.health - attackPoints;
         $("#pOneHealth").text("Health: " + playerOne.health);
-        attackLog = `${playerTwo.name} attacked ${playerOne.name} with a ${playerTwo.attackType} and dealt ${playerTwo.attack()} hit points`;
-        newP.innerText = attackLog;
+        attackLog = `<b>${playerTwo.name}</b> attacked <b>${playerOne.name}</b> with a <b>${playerTwo.attackType}</b> and dealt <b>${attackPoints}</b> hit points`;
+        newP.innerHTML = attackLog;
         $('#fightLog').prepend(newP);
 
         //animation begin
@@ -97,21 +96,24 @@ function fightPlayers(playerOne, playerTwo) {
     if (playerOne.health <= 0) {
       newHeading.innerText = `${playerTwo.name} Wins!`;
       playerOne.health = 0;
-      $("#pOneHealth").text("Health: " + playerOne.health);
+      $('#pOneCard, #pTwoCard').empty();
+      // $("#pOneHealth").text("Health: " + playerOne.health);
       $('#fightLog').prepend(newHeading);
       $('#button-div').empty();
       let resetButton = $('<button id="resetButton" class="btn btn-success center-block">New Game!</button>');
-      $('#battleground').prepend(resetButton);
+      $('header').prepend(resetButton);
       resetButton.click(resetGamePressed);
     } else if (playerTwo.health <= 0) {
       newHeading.innerText = `${playerOne.name} Wins!`;
       playerTwo.health = 0;
-      $("#pTwoHealth").text("Health: " + playerTwo.health);
+      $('#pOneCard, #pTwoCard').empty();
+      // $("#pTwoHealth").text("Health: " + playerTwo.health);
       $('#fightLog').prepend(newHeading);
       $('#button-div').empty();
       let resetButton = $('<button id="resetButton" class="btn btn-success center-block">New Game!</button>');
-      $('#battleground').prepend(resetButton);
+      $('header').prepend(resetButton);
       resetButton.click(resetGamePressed);
+
     }
 
   }
