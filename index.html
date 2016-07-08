@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<header>
   <fieldset id="top-form">
     <legend>Select Player 1:</legend>
     <input type="text" id="char-name" placeholder="Enter character name" class="form-control class-select"></input>
@@ -23,7 +24,7 @@
     </select>
     <button id="create-button" class="btn btn-info class-select">Create Character</button>
 </fieldset>
-
+</header>
   <div id="battleground">
     <div id="pOneCard" class="healthy col-xs-6">
       <h1 id="pOneName"></h1>
@@ -38,8 +39,8 @@
       <p id="pTwoSpecies"></p>
     </div>
     <div id="button-div"></div>
-    <div id="fightLog"></div>
   </div>
+  <div id="fightLog"></div>
 
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
