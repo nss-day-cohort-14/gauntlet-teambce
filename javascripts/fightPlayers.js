@@ -148,7 +148,7 @@ function fightPlayers(playerOne, playerTwo) {
       playerOne.health = 0;
 
       // Clean up DOM elements
-      $('#pOneCard, #pTwoCard').empty();
+      $('#pOneName, #pTwoName, #pOneHealth, #pOneClass, #pOneSpecies, #pTwoHealth, #pTwoClass, #pTwoSpecies').empty();
       $('#fightLog').prepend(newHeading);
       $('#button-div').empty();
 
@@ -167,7 +167,7 @@ function fightPlayers(playerOne, playerTwo) {
       playerTwo.health = 0;
 
       // Clean up DOM elements
-      $('#pOneCard, #pTwoCard').empty();
+      $('#pOneName, #pTwoName, #pOneHealth, #pOneClass, #pOneSpecies, #pTwoHealth, #pTwoClass, #pTwoSpecies').empty();
       $('#fightLog').prepend(newHeading);
       $('#button-div').empty();
 

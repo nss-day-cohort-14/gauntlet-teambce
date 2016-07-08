@@ -57,6 +57,7 @@ let loadSpeciesOption = function( userSpecies ) {
 let printPlayers = function() {
 
   // Get values of input fields
+  $('#headings').hide();
   let characterName = $('#char-name').val();
   let selectedClass = $('#class-select').val();
   let selectedSpecies = $('#species-output').val();

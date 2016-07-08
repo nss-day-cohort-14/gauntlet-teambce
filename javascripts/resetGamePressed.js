@@ -23,6 +23,9 @@ var resetGamePressed = function() {
 
   // Show top-form
   $('#top-form').show();
+
+  // Show game title
+  $('#headings').show();
 };
 
 module.exports = resetGamePressed;
