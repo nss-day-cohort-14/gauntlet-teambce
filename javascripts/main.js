@@ -1,36 +1,38 @@
 "use strict";
 
+// Require necessary modules
 const Trex = require("./species/dinosaurs/trex");
 const Terror = require("./species/dinosaurs/terror");
 const Plesi = require("./species/dinosaurs/plesi");
-
 const Cromag = require("./species/humans/cromag");
 const Future = require("./species/humans/future");
 const Homo = require("./species/humans/homo");
-
 const Create = require("./createPlayers.js");
-
 const fightPlayers = require('./fightPlayers');
-
 const currentAttacker = require('./currentAttacker');
 
+// Array of species
 let dinosaurs = [ Trex, Terror, Plesi ];
 let humans = [ Cromag, Future, Homo ];
-let disabledOption = '<option selected="true" disabled="true">Select type:</option>';
 
+// Disabled option for species select
+let disabledOption = '<option selected="true" disabled="true">Select type:</option>';
 
 //Grabs the user selected class loads relevant species
 let loadClass = function() {
+
+  // Gets selected class and calls loadSpeciesOption to load relevant species
   let selectedClass = $('#class-select').val();
-  // console.log(selectedClass);
   $('#species-output').empty();
   $('#species-output').append(disabledOption);
   loadSpeciesOption(selectedClass);
-};
 
+};
 
 //Loops through array of species that the user selects and appends each related species to select drop down
 let loadSpeciesOption = function( userSpecies ) {
+
+  // If dinosaur class was selected
   if ( userSpecies === "dinosaur" ) {
     for (let i = 0; i < dinosaurs.length; i++) {
       // console.log(dinosaurs[i]);
@@ -39,6 +41,8 @@ let loadSpeciesOption = function( userSpecies ) {
       let currentOption = $(`<option value=${currentSpecies}>${currentSpecies}</option>`);
       $('#species-output').append(currentOption);
     }
+
+  // If humans class was selected
   } else {
     for (let i = 0; i < humans.length; i++) {
       let currentSpecies = new humans[i]();
@@ -47,11 +51,12 @@ let loadSpeciesOption = function( userSpecies ) {
       $('#species-output').append(currentOption);
     }
   }
-};//end loadSpeciesOption
-
+};
 
 //Prints user selected character and randomly generate character
 let printPlayers = function() {
+
+  // Get values of input fields
   let characterName = $('#char-name').val();
   let selectedClass = $('#class-select').val();
   let selectedSpecies = $('#species-output').val();
@@ -72,10 +77,13 @@ let printPlayers = function() {
     }
     return;
   }
-  //determines a random opponent based on user selection
+
+  // Create players
   let playerOne = Create.createPlayerOne(selectedClass, selectedSpecies, characterName);
   currentAttacker.setCurrentAttacker(playerOne);
   var playerTwo = Create.setOpponent(selectedClass);
+
+  // Show and hide DOM elements
   $('#top-form').hide();
   $("#pOneCard").show();
   $("#pTwoCard").show();
@@ -84,11 +92,7 @@ let printPlayers = function() {
     fightPlayers(playerOne, playerTwo);
   });
 
-  // console.log("playerOne", playerOne);
-  // console.log("playerTwo", playerTwo);
-
-};//end of printPlayers
-
+};
 
 //Event listeners for class change drop down
 $('#class-select').change( loadClass );

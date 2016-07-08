@@ -8,6 +8,7 @@ var Human = function () {
   this.weapon = null;
   this.healthMin = 85;
   this.healthMax = 125;
+  this.health = Math.floor(Math.random() * (this.healthMax - this.healthMin + 1)) + this.healthMin;
   this.attackType = [
     {
       attack: "punch",
@@ -31,10 +32,6 @@ var Human = function () {
     }
 
   ];
-  this.attackMin = 7;
-  this.attackMax = 12;
-  this.health = Math.floor(Math.random() * (this.healthMax - this.healthMin + 1)) + this.healthMin;
-
 };
 
 Human.prototype = new Player();

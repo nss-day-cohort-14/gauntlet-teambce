@@ -1,20 +1,19 @@
 "use strict";
 
-
+// Require necessary modules
 const Trex = require("./species/dinosaurs/trex");
 const Terror = require("./species/dinosaurs/terror");
 const Plesi = require("./species/dinosaurs/plesi");
-
 const Cromag = require("./species/humans/cromag");
 const Future = require("./species/humans/future");
 const Homo = require("./species/humans/homo");
-
 const Create = require("./createPlayers.js");
 
+// Array of species
 let dinosaurs = [ Trex, Terror, Plesi ];
 let humans = [ Cromag, Future, Homo ];
 
-
+// Create playerOne function creates a player object based on inputed information
 let createPlayerOne = function( selectedClass, selectedSpecies, characterName) {
 
   if ( selectedClass === "dinosaur" ) {
@@ -26,9 +25,9 @@ let createPlayerOne = function( selectedClass, selectedSpecies, characterName) {
     return store;
   }
 
-};//end  function
+};
 
-
+// selectPlayer function prints a player to the DOM
 let selectPlayer = function( classID, selectedClass, characterName ) {
 
       let playerOne;
@@ -44,13 +43,12 @@ let selectPlayer = function( classID, selectedClass, characterName ) {
           return playerOne;
         }
 
-};//end selectPlayer
+};
 
-
-
-//function that randomly generates opponent that is not the same class as the users class
+//setOpponent function that randomly generates opponent that is not the same class as the users class
 let setOpponent = function ( opponent ) {
 
+  // Get playerTwo DOM elements
   var pTwoHead = document.createElement("h1");
   var pTwoHealth = document.createElement("p");
   var pTwoClass = document.createElement("p");
@@ -58,7 +56,7 @@ let setOpponent = function ( opponent ) {
   //function that determines a random number 0-2
   let randomIndex = Math.floor(Math.random() * 3);
 
-
+  // If opponent is a dinosaur
   if ( opponent === "dinosaur" ) {
     //loop through dinosaurs array and selects a random constructor
     let randomHuman = new humans[randomIndex]("Opponent");
@@ -70,6 +68,7 @@ let setOpponent = function ( opponent ) {
     return randomHuman;
   }
 
+  // If opponent is a human
   if ( opponent === "human" ) {
     //loop through dinosaurs array and selects a random constructor
     let randomDino = new dinosaurs[randomIndex]("Opponent");
@@ -81,7 +80,6 @@ let setOpponent = function ( opponent ) {
     return randomDino;
   }
 
-};//end setOpponent function
-
+};
 
 module.exports = { createPlayerOne, setOpponent };
