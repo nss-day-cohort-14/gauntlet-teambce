@@ -60,21 +60,24 @@ function fightPlayers(playerOne, playerTwo) {
     if (playerOne.health <= 0) {
       newHeading.innerText = `${playerTwo.name} Wins!`;
       playerOne.health = 0;
-      $("#pOneHealth").text("Health: " + playerOne.health);
+      $('#pOneCard, #pTwoCard').empty();
+      // $("#pOneHealth").text("Health: " + playerOne.health);
       $('#fightLog').prepend(newHeading);
       $('#button-div').empty();
       let resetButton = $('<button id="resetButton" class="btn btn-success center-block">New Game!</button>');
-      $('#battleground').prepend(resetButton);
+      $('header').prepend(resetButton);
       resetButton.click(resetGamePressed);
     } else if (playerTwo.health <= 0) {
       newHeading.innerText = `${playerOne.name} Wins!`;
       playerTwo.health = 0;
-      $("#pTwoHealth").text("Health: " + playerTwo.health);
+      $('#pOneCard, #pTwoCard').empty();
+      // $("#pTwoHealth").text("Health: " + playerTwo.health);
       $('#fightLog').prepend(newHeading);
       $('#button-div').empty();
       let resetButton = $('<button id="resetButton" class="btn btn-success center-block">New Game!</button>');
-      $('#battleground').prepend(resetButton);
+      $('header').prepend(resetButton);
       resetButton.click(resetGamePressed);
+
     }
 
   }
