@@ -6,6 +6,9 @@ var Dinosaur = function () {
   this.class = "Dinosaur";
   this.strength = null;
   this.mutation = null;
+  this.healthMin = 85;
+  this.healthMax = 125;
+  this.health = Math.floor(Math.random() * (this.healthMax - this.healthMin + 1)) + this.healthMin;
   this.attackType = [
     {
       attack: "bite",
@@ -29,9 +32,6 @@ var Dinosaur = function () {
     }
 
   ];
-  this.healthMin = 85;
-  this.healthMax = 125;
-  this.health = Math.floor(Math.random() * (this.healthMax - this.healthMin + 1)) + this.healthMin;
 
 };
 
