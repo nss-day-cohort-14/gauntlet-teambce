@@ -166,6 +166,8 @@ function fightPlayers(playerOne, playerTwo) {
       // Prettyify playerTwo's health
       playerTwo.health = 0;
 
+      $('#pOneCard').removeClass('AttackedPlayerDiv');
+      $('#pTwoCard').removeClass('AttackedPlayerDiv');
       // Clean up DOM elements
       $('#pOneName, #pTwoName, #pOneHealth, #pOneClass, #pOneSpecies, #pTwoHealth, #pTwoClass, #pTwoSpecies').empty();
       $('#fightLog').prepend(newHeading);
